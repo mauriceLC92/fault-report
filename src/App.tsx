@@ -65,17 +65,17 @@ const FaultReportingApp = (): ReactElement => {
     switch (currentPage) {
       case 'home':
         return <HomePage setCurrentPage={setCurrentPage} />;
-        
+
       case 'report':
         return (
-          <ReportFaultPage 
+          <ReportFaultPage
             setCurrentPage={setCurrentPage}
             newFault={newFault}
             setNewFault={setNewFault}
             handleSubmit={handleSubmit}
           />
         );
-        
+
       case 'list':
         return (
           <FaultListPage
@@ -88,7 +88,7 @@ const FaultReportingApp = (): ReactElement => {
             areas={areas}
           />
         );
-        
+
       case 'confirmation':
         return (
           <ConfirmationPage
@@ -96,7 +96,7 @@ const FaultReportingApp = (): ReactElement => {
             submittedFault={submittedFault}
           />
         );
-        
+
       default:
         return <div>Unknown page</div>;
     }
@@ -105,11 +105,11 @@ const FaultReportingApp = (): ReactElement => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      
+
       <main className="pb-20">
         {renderPage()}
       </main>
-      
+
       {currentPage !== 'report' && (
         <FloatingActionButton setCurrentPage={setCurrentPage} />
       )}

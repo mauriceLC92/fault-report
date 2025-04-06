@@ -1,5 +1,5 @@
-import { ChangeEvent } from 'react';
-import { AlertTriangle, List } from 'lucide-react';
+import { ChangeEvent, JSX } from 'react';
+import { AlertTriangle } from 'lucide-react';
 import { Fault, PageType } from '../types';
 import BackButton from '../components/ui/BackButton';
 import EmptyState from '../components/ui/EmptyState';
@@ -24,7 +24,7 @@ const FaultListPage = ({
   setAreaFilter,
   areas
 }: FaultListPageProps): JSX.Element => {
-  
+
   const handleStatusFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(e.target.value);
   };
@@ -40,7 +40,7 @@ const FaultListPage = ({
           <BackButton setCurrentPage={setCurrentPage} targetPage="home" />
           <h1 className="text-xl font-bold">Fault List</h1>
         </div>
-        <button 
+        <button
           onClick={() => setCurrentPage('report')}
           className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-lg flex items-center"
         >
@@ -48,9 +48,9 @@ const FaultListPage = ({
           Report
         </button>
       </div>
-      
+
       <div className="flex space-x-2 mb-4">
-        <select 
+        <select
           value={statusFilter}
           onChange={handleStatusFilterChange}
           className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
@@ -60,8 +60,8 @@ const FaultListPage = ({
           <option value="In Progress">In Progress</option>
           <option value="Resolved">Resolved</option>
         </select>
-        
-        <select 
+
+        <select
           value={areaFilter}
           onChange={handleAreaFilterChange}
           className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm"
@@ -71,7 +71,7 @@ const FaultListPage = ({
           ))}
         </select>
       </div>
-      
+
       {filteredFaults.length === 0 ? (
         <EmptyState />
       ) : (
@@ -80,7 +80,7 @@ const FaultListPage = ({
           {areas.filter(area => area !== 'All').map(area => {
             const areaFaults = filteredFaults.filter(fault => fault.area === area);
             if (areaFaults.length === 0) return null;
-            
+
             return (
               <div key={area}>
                 <h3 className="font-medium text-gray-700 bg-gray-100 p-2 rounded mt-4">{area}</h3>

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, JSX } from 'react';
 import { MapPin, Phone, User } from 'lucide-react';
 import { NewFault, PageType } from '../types';
 import BackButton from '../components/ui/BackButton';
@@ -12,17 +12,17 @@ interface ReportFaultPageProps {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-const ReportFaultPage = ({ 
-  setCurrentPage, 
-  newFault, 
-  setNewFault, 
-  handleSubmit 
+const ReportFaultPage = ({
+  setCurrentPage,
+  newFault,
+  setNewFault,
+  handleSubmit
 }: ReportFaultPageProps): JSX.Element => {
-  
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
     setNewFault({ ...newFault, [name]: value });
-    
+
     // Extract area from address for filtering purposes
     if (name === 'address' && value.includes(',')) {
       const area = value.split(',')[1].trim();
@@ -42,7 +42,7 @@ const ReportFaultPage = ({
   };
 
   const handleImageRemove = (): void => {
-    setNewFault({...newFault, image: null});
+    setNewFault({ ...newFault, image: null });
   };
 
   return (
@@ -51,12 +51,12 @@ const ReportFaultPage = ({
         <BackButton setCurrentPage={setCurrentPage} targetPage="home" />
         <h1 className="text-xl font-bold">Report New Fault</h1>
       </div>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Fault Description*</label>
-          <textarea 
-            name="description" 
+          <textarea
+            name="description"
             value={newFault.description}
             onChange={handleInputChange}
             required
@@ -65,10 +65,10 @@ const ReportFaultPage = ({
             placeholder="Describe the issue..."
           ></textarea>
         </div>
-        
-        <IconInput 
-          type="text" 
-          name="address" 
+
+        <IconInput
+          type="text"
+          name="address"
           value={newFault.address}
           onChange={handleInputChange}
           required={true}
@@ -76,11 +76,11 @@ const ReportFaultPage = ({
           label="Address"
           Icon={MapPin}
         />
-        
+
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Severity*</label>
-          <select 
-            name="severity" 
+          <select
+            name="severity"
             value={newFault.severity}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -90,10 +90,10 @@ const ReportFaultPage = ({
             <option value="High">High</option>
           </select>
         </div>
-        
-        <IconInput 
-          type="text" 
-          name="name" 
+
+        <IconInput
+          type="text"
+          name="name"
           value={newFault.name}
           onChange={handleInputChange}
           required={true}
@@ -101,10 +101,10 @@ const ReportFaultPage = ({
           label="Your Name"
           Icon={User}
         />
-        
-        <IconInput 
-          type="tel" 
-          name="contact" 
+
+        <IconInput
+          type="tel"
+          name="contact"
           value={newFault.contact}
           onChange={handleInputChange}
           required={true}
@@ -112,16 +112,16 @@ const ReportFaultPage = ({
           label="Contact Number"
           Icon={Phone}
         />
-        
-        <ImageUploader 
-          image={newFault.image} 
-          onImageUpload={handleImageUpload} 
-          onImageRemove={handleImageRemove} 
+
+        <ImageUploader
+          image={newFault.image}
+          onImageUpload={handleImageUpload}
+          onImageRemove={handleImageRemove}
         />
-        
+
         <div className="pt-4">
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition-colors"
           >
             Submit Fault Report

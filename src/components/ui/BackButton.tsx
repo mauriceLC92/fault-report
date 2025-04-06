@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { ChevronLeft } from 'lucide-react';
 import { PageType } from '../../types';
 

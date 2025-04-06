@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { Camera, X } from 'lucide-react';
 import { ChangeEvent } from 'react';
 
@@ -17,10 +18,10 @@ const ImageUploader = ({ image, onImageUpload, onImageRemove }: ImageUploaderPro
             <Camera className="w-8 h-8 mb-2 text-gray-500" />
             <p className="text-xs text-gray-500">Click to upload photo</p>
           </div>
-          <input 
-            type="file" 
-            accept="image/*" 
-            className="hidden" 
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
             onChange={onImageUpload}
           />
         </label>
@@ -28,7 +29,7 @@ const ImageUploader = ({ image, onImageUpload, onImageRemove }: ImageUploaderPro
       {image && (
         <div className="mt-2 relative">
           <img src={image} alt="Preview" className="h-20 w-auto rounded" />
-          <button 
+          <button
             type="button"
             onClick={onImageRemove}
             className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"

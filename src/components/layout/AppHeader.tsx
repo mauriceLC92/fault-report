@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { Home, List } from 'lucide-react';
 import { PageType } from '../../types';
 
@@ -21,16 +22,16 @@ const AppHeader = ({ currentPage, setCurrentPage }: AppHeaderProps): JSX.Element
           </div>
           <h2 className="text-lg font-semibold ml-2">FixItFast</h2>
         </div>
-        
+
         <div className="flex space-x-3">
-          <button 
-            onClick={() => setCurrentPage('home')} 
+          <button
+            onClick={() => setCurrentPage('home')}
             className={`p-2 rounded-full ${currentPage === 'home' ? 'bg-gray-100' : ''}`}
           >
             <Home size={20} className={currentPage === 'home' ? 'text-blue-600' : 'text-gray-500'} />
           </button>
-          <button 
-            onClick={() => setCurrentPage('list')} 
+          <button
+            onClick={() => setCurrentPage('list')}
             className={`p-2 rounded-full ${currentPage === 'list' ? 'bg-gray-100' : ''}`}
           >
             <List size={20} className={currentPage === 'list' ? 'text-blue-600' : 'text-gray-500'} />

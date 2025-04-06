@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { LucideIcon } from 'lucide-react';
 
 interface IconInputProps {
@@ -11,24 +12,24 @@ interface IconInputProps {
   Icon: LucideIcon;
 }
 
-const IconInput = ({ 
-  type, 
-  name, 
-  value, 
-  onChange, 
-  required = false, 
-  placeholder, 
-  label, 
-  Icon 
+const IconInput = ({
+  type,
+  name,
+  value,
+  onChange,
+  required = false,
+  placeholder,
+  label,
+  Icon
 }: IconInputProps): JSX.Element => {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1">{label}{required && '*'}</label>
       <div className="relative">
         <Icon className="absolute left-3 top-3 text-gray-400 h-4 w-4" />
-        <input 
-          type={type} 
-          name={name} 
+        <input
+          type={type}
+          name={name}
           value={value}
           onChange={onChange}
           required={required}

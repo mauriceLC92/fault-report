@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { LucideIcon } from 'lucide-react';
 
 interface ActionButtonProps {

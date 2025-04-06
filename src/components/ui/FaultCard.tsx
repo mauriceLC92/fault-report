@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { Fault } from "../../types";
 import StatusBadge from "./StatusBadge";
 

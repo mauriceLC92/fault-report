@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { List } from 'lucide-react';
 
 const EmptyState = (): JSX.Element => {
